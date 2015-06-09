@@ -1,2 +1,4 @@
 notas
 *.pyc
+.RData
+.Rhistory

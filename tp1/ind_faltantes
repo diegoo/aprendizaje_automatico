@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 import os, csv, random, sys
 from collections import Counter
+import itertools
 
 # uso:
 # ./ind_faltantes [archivo] [nro. de campo a modificar (empezando en 0)]
 #
 # ejemplo:
-# ./ind_faltantes dataset.csv 2
+# ./ind_faltantes input/dataset.csv 2
 
+output_dir = 'output'
 input_data_file = sys.argv[1]
 field_number = int(sys.argv[2])
 
@@ -27,11 +29,28 @@ def set_missing(r, i, m):
 # and applies 'set_missing' transformation to those records
 #
 def transform_dataset(rr, percentage):
-    number_of_records_to_alter = int((percentage / 100.0) * len(records))
+    number_of_records_to_alter = int((percentage / 100.0) * len(rr))
     indices_to_alter = random.sample(record_indices, number_of_records_to_alter)
-    altered_records = [set_missing(record, field_number, field_mode_value) if index in indices_to_alter else record for (index, record) in enumerate(records)]
+    altered_records = [set_missing(r, field_number, field_mode_name) if (index in indices_to_alter or r[field_number] == 'NA') else r for (index, r) in enumerate(rr)]
     return altered_records
-    
+
+# selects a sample of size [percentage]% of records [rr]
+# and applies 'set_missing' transformation to those records, selecting mode from [modes_per_class]
+#
+def transform_dataset_per_class(rr, percentage, modes_per_class):
+    number_of_records_to_alter = int((percentage / 100.0) * len(rr))
+    indices_to_alter = random.sample(record_indices, number_of_records_to_alter)
+    altered_records = []
+    for (index, r) in enumerate(rr):
+        if (index in indices_to_alter) or r[field_number] == 'NA':
+            mode_per_class = modes_per_class[r[class_field_number]]
+            # print("record %s" % record)
+            # print("changing %s to %s" % (record[field_number], mode))
+            altered_records.append(set_missing(r, field_number, mode_per_class))
+        else:
+            altered_records.append(r)
+    return altered_records
+
 # reads input data file and calculates mode for the given field
 #
 with open(input_data_file, 'r') as csvfile:
@@ -39,20 +58,49 @@ with open(input_data_file, 'r') as csvfile:
     records = [record for record in freader]
     (field_names, records) = (records[0], records[1:])
     record_indices = range(0, len(records))
-    value_counter = Counter([record[field_number] for record in records])
-    field_mode_name, field_mode_value = value_counter.most_common(1)[0]
-    print("moda del campo %s: %s, %d" % (field_names[field_number], field_mode_name, field_mode_value))
-          
+
+value_counter = Counter([record[field_number] for record in records])
+field_mode_name, field_mode_value = value_counter.most_common(1)[0]
+print("frecuencias del atributo %s (%d): %s" % (field_names[field_number], field_number, value_counter.most_common()))
+print("moda del atributo %s (%d): %s, %d" % (field_names[field_number], field_number, field_mode_name, field_mode_value))
+
+class_field_number = len(records[0]) - 1
+class_values = set([record[class_field_number] for record in records])
+class_frequencies = Counter([r[class_field_number] for r in records])
+assert(sum([v for (k,v) in class_frequencies.viewitems()]) == len(records))
+
+counters_per_class = dict()
+
+# build counters with mode of attribute per class
+sorted_records = sorted(records, key=lambda x: x[class_field_number])
+groups = itertools.groupby(sorted_records, key=lambda x: x[class_field_number])
+print("moda del atributo %s (%d) segun la clase:\n" % (field_names[field_number], field_number))
+for (classs, group) in groups:
+    field_values = [r[field_number] for r in group]
+    counter = Counter(field_values)
+    # print(classs, counter.most_common(), counter.most_common(1)[0][0])
+    counters_per_class[classs] = counter.most_common(1)[0][0]
+
+print(counters_per_class.viewitems())
+
 # outputs altered datasets, one per file
 #
 for missing_percentage in seq(0, 85, step=2.5):
-    basename, extension = os.path.splitext(input_data_file)
-    output_data_file = basename + '.faltante.' + str(missing_percentage) + extension
-
+    folder, filename = os.path.split(input_data_file)
+    basename, extension = os.path.splitext(filename)
+    
+    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.' + str(missing_percentage) + extension
     with open(output_data_file, 'w') as csvfile:
         fwriter = csv.writer(csvfile, delimiter=';')
         fwriter.writerow(field_names)
         altered_records = transform_dataset(records, missing_percentage)
         fwriter.writerows(altered_records)
-
+    print("%s: done" % output_data_file)
+    
+    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.por.clase.' + str(missing_percentage) + extension
+    with open(output_data_file, 'w') as csvfile:
+        fwriter = csv.writer(csvfile, delimiter=';')
+        fwriter.writerow(field_names)
+        altered_records = transform_dataset_per_class(records, missing_percentage, counters_per_class)
+        fwriter.writerows(altered_records)
     print("%s: done" % output_data_file)

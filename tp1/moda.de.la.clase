@@ -1,0 +1,29 @@
+'HDZ': 1119
+'Savez komunista Hrvatske - Stranka d': 397
+'Koalicija narodnog sporazuma  Hrvats': 350
+'I did not vote': 298
+'For the independent candidate': 52
+'Other party:': 31
+'Socijalisticki savez - Savez socijal': 30
+'HSS': 28
+'Savez zelenih Hrvatske  Zelelna akci': 26
+'NA': 17
+'Istarski demokratski sabor': 5
+'Srpska demokratska stranka': 4
+'Yugoslavenska samostalna demokratska': 2
+
+> dataset <- read.csv('dataset.csv', sep=";", header=TRUE)
+> sort(table(dataset$"WHICH.PARTY.LAST.ELECT."))
+
+Yugoslavenska samostalna demokratska           Srpska demokratska stranka 
+                                   2                                    4 
+          Istarski demokratski sabor Savez zelenih Hrvatske  Zelelna akci 
+                                   5                                   26 
+                                 HSS Socijalisticki savez - Savez socijal 
+                                  28                                   30 
+                        Other party:        For the independent candidate 
+                                  31                                   52 
+                      I did not vote Koalicija narodnog sporazuma  Hrvats 
+                                 298                                  350 
+Savez komunista Hrvatske - Stranka d                                  HDZ 
+                                 397                                 1119 

@@ -1,0 +1,41 @@
+> dataset <- read.csv('dataset.csv', sep=";", header=TRUE)
+> for (nn in colnames(dataset)) { print(nn); print(names(sort(table(dataset[nn]), decreasing=TRUE))[1]) }
+
+[1] "GENDER"
+[1] "Female"
+
+[1] "AGE"
+[1] "29-39"
+
+[1] "MEMBER.POL..PARTY"
+[1] "Not a member"
+
+[1] "INFO..PRESS"
+[1] "Yes"
+
+[1] "INFO..TV.RADIO"
+[1] "Yes"
+
+[1] "INFO..POL..MEETING"
+[1] "No"
+
+[1] "INFO..PARTY.PRESS"
+[1] "No"
+
+[1] "INFO..ELECT..PUBLICATION"
+[1] "No"
+
+[1] "INFO..CONVERSATION"
+[1] "Yes"
+
+[1] "INFO..NOT.INTERESTED"
+[1] "No"
+
+[1] "STATE.AND.MASS.MEDIA"
+[1] "The state should not intervene in th"
+
+[1] "RESULT.INFLUEN.VOTING"
+[1] "No"
+
+[1] "WHICH.PARTY.LAST.ELECT."
+[1] "HDZ"
