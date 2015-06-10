@@ -1,0 +1,118 @@
+
+Options: -C 0.225 -M 2 
+
+J48 pruned tree
+------------------
+
+MEMBER_POL_PARTY = NOTAMEMBER
+|   AGE <= 28
+|   |   INFO_NOT_INTERESTED = No
+|   |   |   RESULT_INFLUEN_VOTING = No: HDZ (384.0/233.0)
+|   |   |   RESULT_INFLUEN_VOTING = NA: NOVOTE (3.0/1.0)
+|   |   |   RESULT_INFLUEN_VOTING = Yes
+|   |   |   |   STATE_AND_MASS_MEDIA = NOINTERVENTION
+|   |   |   |   |   AGE <= 23: NOVOTE (8.0/4.0)
+|   |   |   |   |   AGE > 23: SAVEZKOMUNISTA (6.0/2.0)
+|   |   |   |   STATE_AND_MASS_MEDIA = LIMITEDINFLUENCE
+|   |   |   |   |   AGE <= 25: NOVOTE (7.0/2.0)
+|   |   |   |   |   AGE > 25: HDZ (5.0/1.0)
+|   |   |   |   STATE_AND_MASS_MEDIA = STRONGINFLUENCE: NOVOTE (0.0)
+|   |   |   |   STATE_AND_MASS_MEDIA = NA: NOVOTE (0.0)
+|   |   INFO_NOT_INTERESTED = Yes
+|   |   |   INFO_PRESS = Yes: HDZ (27.0/11.0)
+|   |   |   INFO_PRESS = No: NOVOTE (22.0/9.0)
+|   |   |   INFO_PRESS = NA: SOCIAJALISTICKI (1.0)
+|   |   INFO_NOT_INTERESTED = NA: HDZ (21.0/10.0)
+|   AGE > 28: HDZ (1273.0/660.0)
+MEMBER_POL_PARTY = HDZ: HDZ (66.0/2.0)
+MEMBER_POL_PARTY = HKDS
+|   AGE <= 33: HDZ (2.0)
+|   AGE > 33: KOALICIJA (2.0)
+MEMBER_POL_PARTY = HSP: HDZ (19.0/7.0)
+MEMBER_POL_PARTY = HKDZ: KOALICIJA (4.0/2.0)
+MEMBER_POL_PARTY = SDP: SAVEZKOMUNISTA (9.0/1.0)
+MEMBER_POL_PARTY = OTHERPARTY
+|   RESULT_INFLUEN_VOTING = No
+|   |   STATE_AND_MASS_MEDIA = NOINTERVENTION
+|   |   |   INFO_NOT_INTERESTED = No: HDZ (4.0/1.0)
+|   |   |   INFO_NOT_INTERESTED = Yes: HDZ (0.0)
+|   |   |   INFO_NOT_INTERESTED = NA: KOALICIJA (2.0/1.0)
+|   |   STATE_AND_MASS_MEDIA = LIMITEDINFLUENCE: KOALICIJA (4.0/1.0)
+|   |   STATE_AND_MASS_MEDIA = STRONGINFLUENCE: HDZ (0.0)
+|   |   STATE_AND_MASS_MEDIA = NA: HDZ (0.0)
+|   RESULT_INFLUEN_VOTING = NA: HDZ (0.0)
+|   RESULT_INFLUEN_VOTING = Yes: NOVOTE (2.0/1.0)
+MEMBER_POL_PARTY = AREGIONALPARTY: KOALICIJA (3.0/2.0)
+MEMBER_POL_PARTY = NA: HDZ (0.0)
+MEMBER_POL_PARTY = HSLS: KOALICIJA (7.0/3.0)
+MEMBER_POL_PARTY = SSH: SOCIAJALISTICKI (3.0/1.0)
+MEMBER_POL_PARTY = HSS: HSS (3.0)
+MEMBER_POL_PARTY = SDSH: SAVEZKOMUNISTA (1.0)
+
+Number of Leaves  : 	33
+
+Size of the tree : 	45
+
+
+Time taken to build model: 0.32 seconds
+Time taken to test model on training data: 0.15 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         933               49.4174 %
+Incorrectly Classified Instances       955               50.5826 %
+Kappa statistic                          0.0725
+Mean absolute error                      0.1025
+Root mean squared error                  0.2264
+Relative absolute error                 93.5743 %
+Root relative squared error             96.8321 %
+Total Number of Instances             1888     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 876   4   0   7   1   0   0   0   0   0   0   0   0 |   a = HDZ
+ 264  13   0   5   0   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+  43   0   0   0   0   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+ 207   0   0  25   2   0   0   0   0   0   0   0   0 |   d = NOVOTE
+ 302   4   0   4  13   0   0   0   1   0   0   0   0 |   e = SAVEZKOMUNISTA
+  19   1   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+  18   0   0   1   0   0   3   0   0   0   0   0   0 |   g = HSS
+  29   0   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+  22   0   0   0   0   0   0   0   3   0   0   0   0 |   i = SOCIAJALISTICKI
+  13   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   1   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   5   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+
+
+=== Error on test data ===
+
+Correctly Classified Instances         243               51.5924 %
+Incorrectly Classified Instances       228               48.4076 %
+Kappa statistic                          0.0945
+Mean absolute error                      0.0988
+Root mean squared error                  0.2232
+Relative absolute error                 91.0896 %
+Root relative squared error             96.4599 %
+Total Number of Instances              471     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 222   4   0   3   1   0   1   0   0   0   0   0   0 |   a = HDZ
+  61   7   0   0   0   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+   8   0   0   0   1   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+  57   0   0   6   1   0   0   0   0   0   0   0   0 |   d = NOVOTE
+  67   0   0   0   6   0   0   0   0   0   0   0   0 |   e = SAVEZKOMUNISTA
+   6   0   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+   5   0   0   0   0   0   1   0   0   0   0   0   0 |   g = HSS
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+   3   0   0   1   0   0   0   0   1   0   0   0   0 |   i = SOCIAJALISTICKI
+   4   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   0   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   3   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   0   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+

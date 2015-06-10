@@ -30,7 +30,7 @@ arff_header = """
 # ejemplo:
 # ./ind_faltantes input/dataset.csv 2
 
-output_dir = 'output/ej.2'
+output_dir = 'output/ej.2/'
 input_data_file = sys.argv[1]
 field_number = int(sys.argv[2])
 
@@ -111,7 +111,7 @@ for missing_percentage in seq(0, 85, step=2.5):
     folder, filename = os.path.split(input_data_file)
     basename, extension = os.path.splitext(filename)
     
-    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.' + str(field_number) + '.' + str(missing_percentage) + '.arff'
+    output_data_file = output_dir + basename + '.faltante.moda.de.atributo.' + str(field_number) + '.' + str(missing_percentage) + '.arff'
     with open(output_data_file, 'w') as f:
         f.writelines(arff_header)
         
@@ -121,7 +121,7 @@ for missing_percentage in seq(0, 85, step=2.5):
         fwriter.writerows(altered_records)
     print("%s: done" % output_data_file)
     
-    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.por.clase.' + str(field_number) + '.' + str(missing_percentage) + '.arff'
+    output_data_file = output_dir + basename + '.faltante.moda.de.atributo.por.clase.' + str(field_number) + '.' + str(missing_percentage) + '.arff'
     with open(output_data_file, 'w') as f:
         f.writelines(arff_header)
 

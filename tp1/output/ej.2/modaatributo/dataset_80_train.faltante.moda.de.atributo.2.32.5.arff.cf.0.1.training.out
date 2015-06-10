@@ -1,0 +1,105 @@
+
+Options: -C 0.1 -M 2 
+
+J48 pruned tree
+------------------
+
+MEMBER_POL_PARTY = NOTAMEMBER: HDZ (1710.0/932.0)
+MEMBER_POL_PARTY = HDZ: HDZ (86.0/4.0)
+MEMBER_POL_PARTY = HKDS
+|   INFO_POL_MEETING = No: HDZ (2.0)
+|   INFO_POL_MEETING = Yes: KOALICIJA (3.0)
+|   INFO_POL_MEETING = NA: KOALICIJA (0.0)
+MEMBER_POL_PARTY = HSP: HDZ (20.0/5.0)
+MEMBER_POL_PARTY = HKDZ
+|   RESULT_INFLUEN_VOTING = No
+|   |   INFO_POL_MEETING = No
+|   |   |   GENDER = Female: KOALICIJA (2.0/1.0)
+|   |   |   GENDER = Male: NOVOTE (5.0/2.0)
+|   |   |   GENDER = NA: NOVOTE (0.0)
+|   |   INFO_POL_MEETING = Yes: KOALICIJA (5.0)
+|   |   INFO_POL_MEETING = NA: KOALICIJA (0.0)
+|   RESULT_INFLUEN_VOTING = NA: KOALICIJA (0.0)
+|   RESULT_INFLUEN_VOTING = Yes: HDZ (2.0)
+MEMBER_POL_PARTY = SDP: SAVEZKOMUNISTA (12.0/1.0)
+MEMBER_POL_PARTY = OTHERPARTY
+|   AGE <= 45: KOALICIJA (9.0/4.0)
+|   AGE > 45: HDZ (5.0/2.0)
+MEMBER_POL_PARTY = AREGIONALPARTY
+|   INFO_ELECT_PUBLICATION = No: SAVEZKOMUNISTA (2.0)
+|   INFO_ELECT_PUBLICATION = Yes: KOALICIJA (2.0/1.0)
+|   INFO_ELECT_PUBLICATION = NA: KOALICIJA (1.0)
+MEMBER_POL_PARTY = NA: HDZ (0.0)
+MEMBER_POL_PARTY = HSLS: KOALICIJA (10.0/3.0)
+MEMBER_POL_PARTY = SSH: SOCIAJALISTICKI (3.0/1.0)
+MEMBER_POL_PARTY = HSS: HSS (7.0/2.0)
+MEMBER_POL_PARTY = SDSH: KOALICIJA (2.0/1.0)
+
+Number of Leaves  : 	24
+
+Size of the tree : 	31
+
+
+Time taken to build model: 0.26 seconds
+Time taken to test model on training data: 0.15 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         929               49.2055 %
+Incorrectly Classified Instances       959               50.7945 %
+Kappa statistic                          0.0611
+Mean absolute error                      0.1037
+Root mean squared error                  0.2277
+Relative absolute error                 94.6907 %
+Root relative squared error             97.408  %
+Total Number of Instances             1888     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 882   3   0   2   0   0   1   0   0   0   0   0   0 |   a = HDZ
+ 257  24   0   0   1   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+  43   0   0   0   0   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+ 228   2   0   3   0   0   1   0   0   0   0   0   0 |   d = NOVOTE
+ 307   3   0   0  13   0   0   0   1   0   0   0   0 |   e = SAVEZKOMUNISTA
+  19   1   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+  17   0   0   0   0   0   5   0   0   0   0   0   0 |   g = HSS
+  28   1   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+  23   0   0   0   0   0   0   0   2   0   0   0   0 |   i = SOCIAJALISTICKI
+  13   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   1   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   5   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         910               48.1992 %
+Incorrectly Classified Instances       978               51.8008 %
+Kappa statistic                          0.0407
+Mean absolute error                      0.105 
+Root mean squared error                  0.2306
+Relative absolute error                 95.8258 %
+Root relative squared error             98.6246 %
+Total Number of Instances             1888     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 877   6   0   3   1   0   1   0   0   0   0   0   0 |   a = HDZ
+ 261  17   0   1   3   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+  43   0   0   0   0   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+ 232   1   0   0   0   0   1   0   0   0   0   0   0 |   d = NOVOTE
+ 307   5   0   0  11   0   0   0   1   0   0   0   0 |   e = SAVEZKOMUNISTA
+  19   1   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+  18   0   0   0   0   0   4   0   0   0   0   0   0 |   g = HSS
+  29   0   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+  23   0   0   0   1   0   0   0   1   0   0   0   0 |   i = SOCIAJALISTICKI
+  13   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   1   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   5   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+

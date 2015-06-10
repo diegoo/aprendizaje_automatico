@@ -1,8 +1,0 @@
-#!/bin/bash
-
-for TRAINING_FILE in output/ej.2/*.arff; do
-
-    java -Xmx1024m -cp weka.jar weka.classifiers.trees.J48 -t "$TRAINING_FILE" -T input/dataset_20_test.arff -C "$CONFIDENCE_FACTOR" -M 2 > output/ej2.1."$CONFIDENCE_FACTOR".out ;
-    echo "done $TRAINING_FILE at $CONFIDENCE_FACTOR" ;
-    
-done

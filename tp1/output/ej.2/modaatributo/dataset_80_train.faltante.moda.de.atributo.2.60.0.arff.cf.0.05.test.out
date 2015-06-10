@@ -1,0 +1,74 @@
+
+Options: -C 0.05 -M 2 
+
+J48 pruned tree
+------------------
+: HDZ (1888.0/1000.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+Time taken to build model: 0.29 seconds
+Time taken to test model on training data: 0.1 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         888               47.0339 %
+Incorrectly Classified Instances      1000               52.9661 %
+Kappa statistic                          0     
+Mean absolute error                      0.1093
+Root mean squared error                  0.2338
+Relative absolute error                 99.7957 %
+Root relative squared error             99.9993 %
+Total Number of Instances             1888     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 888   0   0   0   0   0   0   0   0   0   0   0   0 |   a = HDZ
+ 282   0   0   0   0   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+  43   0   0   0   0   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+ 234   0   0   0   0   0   0   0   0   0   0   0   0 |   d = NOVOTE
+ 324   0   0   0   0   0   0   0   0   0   0   0   0 |   e = SAVEZKOMUNISTA
+  20   0   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+  22   0   0   0   0   0   0   0   0   0   0   0   0 |   g = HSS
+  29   0   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+  25   0   0   0   0   0   0   0   0   0   0   0   0 |   i = SOCIAJALISTICKI
+  13   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   1   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   5   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+
+
+=== Error on test data ===
+
+Correctly Classified Instances         231               49.0446 %
+Incorrectly Classified Instances       240               50.9554 %
+Kappa statistic                          0     
+Mean absolute error                      0.1082
+Root mean squared error                  0.2314
+Relative absolute error                 99.7868 %
+Root relative squared error             99.9923 %
+Total Number of Instances              471     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 231   0   0   0   0   0   0   0   0   0   0   0   0 |   a = HDZ
+  68   0   0   0   0   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+   9   0   0   0   0   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+  64   0   0   0   0   0   0   0   0   0   0   0   0 |   d = NOVOTE
+  73   0   0   0   0   0   0   0   0   0   0   0   0 |   e = SAVEZKOMUNISTA
+   6   0   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+   6   0   0   0   0   0   0   0   0   0   0   0   0 |   g = HSS
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+   5   0   0   0   0   0   0   0   0   0   0   0   0 |   i = SOCIAJALISTICKI
+   4   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   0   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   3   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   0   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+

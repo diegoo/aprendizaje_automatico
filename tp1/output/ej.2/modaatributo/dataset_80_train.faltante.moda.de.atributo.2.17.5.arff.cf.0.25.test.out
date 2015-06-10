@@ -1,0 +1,185 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+MEMBER_POL_PARTY = NOTAMEMBER
+|   AGE <= 28
+|   |   INFO_PARTY_PRESS = No
+|   |   |   INFO_NOT_INTERESTED = No
+|   |   |   |   INFO_CONVERSATION = No
+|   |   |   |   |   INFO_ELECT_PUBLICATION = No: HDZ (69.0/37.0)
+|   |   |   |   |   INFO_ELECT_PUBLICATION = Yes: NOVOTE (5.0/2.0)
+|   |   |   |   |   INFO_ELECT_PUBLICATION = NA: HDZ (0.0)
+|   |   |   |   INFO_CONVERSATION = Yes
+|   |   |   |   |   RESULT_INFLUEN_VOTING = No
+|   |   |   |   |   |   INFO_PRESS = Yes
+|   |   |   |   |   |   |   STATE_AND_MASS_MEDIA = NOINTERVENTION
+|   |   |   |   |   |   |   |   GENDER = Female
+|   |   |   |   |   |   |   |   |   AGE <= 20: HDZ (23.0/13.0)
+|   |   |   |   |   |   |   |   |   AGE > 20
+|   |   |   |   |   |   |   |   |   |   INFO_ELECT_PUBLICATION = No
+|   |   |   |   |   |   |   |   |   |   |   AGE <= 22: NOVOTE (10.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   AGE > 22
+|   |   |   |   |   |   |   |   |   |   |   |   AGE <= 27: HDZ (31.0/21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   AGE > 27: NOVOTE (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   INFO_ELECT_PUBLICATION = Yes: KOALICIJA (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   INFO_ELECT_PUBLICATION = NA: NOVOTE (0.0)
+|   |   |   |   |   |   |   |   GENDER = Male
+|   |   |   |   |   |   |   |   |   AGE <= 24
+|   |   |   |   |   |   |   |   |   |   AGE <= 23: NOVOTE (48.0/28.0)
+|   |   |   |   |   |   |   |   |   |   AGE > 23: HDZ (7.0/2.0)
+|   |   |   |   |   |   |   |   |   AGE > 24: NOVOTE (26.0/14.0)
+|   |   |   |   |   |   |   |   GENDER = NA: NOVOTE (0.0)
+|   |   |   |   |   |   |   STATE_AND_MASS_MEDIA = LIMITEDINFLUENCE: HDZ (64.0/36.0)
+|   |   |   |   |   |   |   STATE_AND_MASS_MEDIA = STRONGINFLUENCE
+|   |   |   |   |   |   |   |   AGE <= 25
+|   |   |   |   |   |   |   |   |   AGE <= 21: HDZ (2.0)
+|   |   |   |   |   |   |   |   |   AGE > 21: NOVOTE (4.0/1.0)
+|   |   |   |   |   |   |   |   AGE > 25: HDZ (2.0/1.0)
+|   |   |   |   |   |   |   STATE_AND_MASS_MEDIA = NA: HDZ (0.0)
+|   |   |   |   |   |   INFO_PRESS = No: HDZ (31.0/17.0)
+|   |   |   |   |   |   INFO_PRESS = NA: HDZ (0.0)
+|   |   |   |   |   RESULT_INFLUEN_VOTING = NA: NOVOTE (2.0)
+|   |   |   |   |   RESULT_INFLUEN_VOTING = Yes
+|   |   |   |   |   |   STATE_AND_MASS_MEDIA = NOINTERVENTION
+|   |   |   |   |   |   |   AGE <= 23: NOVOTE (4.0/1.0)
+|   |   |   |   |   |   |   AGE > 23: SAVEZKOMUNISTA (6.0/2.0)
+|   |   |   |   |   |   STATE_AND_MASS_MEDIA = LIMITEDINFLUENCE
+|   |   |   |   |   |   |   GENDER = Female: HDZ (3.0)
+|   |   |   |   |   |   |   GENDER = Male
+|   |   |   |   |   |   |   |   AGE <= 25: NOVOTE (4.0)
+|   |   |   |   |   |   |   |   AGE > 25: HDZ (3.0)
+|   |   |   |   |   |   |   GENDER = NA: HDZ (0.0)
+|   |   |   |   |   |   STATE_AND_MASS_MEDIA = STRONGINFLUENCE: HDZ (0.0)
+|   |   |   |   |   |   STATE_AND_MASS_MEDIA = NA: HDZ (0.0)
+|   |   |   |   INFO_CONVERSATION = NA: HDZ (0.0)
+|   |   |   INFO_NOT_INTERESTED = Yes
+|   |   |   |   INFO_PRESS = Yes: HDZ (21.0/11.0)
+|   |   |   |   INFO_PRESS = No: NOVOTE (22.0/9.0)
+|   |   |   |   INFO_PRESS = NA: NOVOTE (0.0)
+|   |   |   INFO_NOT_INTERESTED = NA: KOALICIJA (1.0)
+|   |   INFO_PARTY_PRESS = Yes
+|   |   |   INFO_PRESS = Yes
+|   |   |   |   RESULT_INFLUEN_VOTING = No: HDZ (40.0/20.0)
+|   |   |   |   RESULT_INFLUEN_VOTING = NA: HDZ (0.0)
+|   |   |   |   RESULT_INFLUEN_VOTING = Yes: NOVOTE (4.0/1.0)
+|   |   |   INFO_PRESS = No: HDZ (5.0)
+|   |   |   INFO_PRESS = NA: OTHERPARTY (1.0)
+|   |   INFO_PARTY_PRESS = NA: HDZ (16.0/8.0)
+|   AGE > 28: HDZ (1207.0/635.0)
+MEMBER_POL_PARTY = HDZ: HDZ (108.0/4.0)
+MEMBER_POL_PARTY = HKDS
+|   AGE <= 34: HDZ (3.0)
+|   AGE > 34: KOALICIJA (3.0)
+MEMBER_POL_PARTY = HSP
+|   STATE_AND_MASS_MEDIA = NOINTERVENTION
+|   |   INFO_CONVERSATION = No
+|   |   |   AGE <= 46: HDZ (7.0/2.0)
+|   |   |   AGE > 46: KOALICIJA (2.0)
+|   |   INFO_CONVERSATION = Yes: HDZ (11.0/2.0)
+|   |   INFO_CONVERSATION = NA: KOALICIJA (1.0)
+|   STATE_AND_MASS_MEDIA = LIMITEDINFLUENCE
+|   |   AGE <= 41: NOVOTE (5.0/2.0)
+|   |   AGE > 41: HDZ (2.0)
+|   STATE_AND_MASS_MEDIA = STRONGINFLUENCE: HDZ (2.0)
+|   STATE_AND_MASS_MEDIA = NA: HDZ (0.0)
+MEMBER_POL_PARTY = HKDZ
+|   AGE <= 41
+|   |   INFO_PARTY_PRESS = No: NOVOTE (3.0/1.0)
+|   |   INFO_PARTY_PRESS = Yes: HDZ (3.0/1.0)
+|   |   INFO_PARTY_PRESS = NA: HDZ (0.0)
+|   AGE > 41: KOALICIJA (5.0/1.0)
+MEMBER_POL_PARTY = SDP: SAVEZKOMUNISTA (16.0/2.0)
+MEMBER_POL_PARTY = OTHERPARTY
+|   INFO_PRESS = Yes
+|   |   STATE_AND_MASS_MEDIA = NOINTERVENTION
+|   |   |   INFO_PARTY_PRESS = No: HDZ (5.0/3.0)
+|   |   |   INFO_PARTY_PRESS = Yes: NOVOTE (3.0/1.0)
+|   |   |   INFO_PARTY_PRESS = NA: SAVEZKOMUNISTA (1.0)
+|   |   STATE_AND_MASS_MEDIA = LIMITEDINFLUENCE: KOALICIJA (4.0/1.0)
+|   |   STATE_AND_MASS_MEDIA = STRONGINFLUENCE: KOALICIJA (0.0)
+|   |   STATE_AND_MASS_MEDIA = NA: KOALICIJA (0.0)
+|   INFO_PRESS = No: HDZ (1.0)
+|   INFO_PRESS = NA: HDZ (2.0/1.0)
+MEMBER_POL_PARTY = AREGIONALPARTY
+|   INFO_ELECT_PUBLICATION = No: SAVEZKOMUNISTA (3.0)
+|   INFO_ELECT_PUBLICATION = Yes: SAVEZZELENIH (2.0/1.0)
+|   INFO_ELECT_PUBLICATION = NA: KOALICIJA (1.0)
+MEMBER_POL_PARTY = NA: HDZ (0.0)
+MEMBER_POL_PARTY = HSLS: KOALICIJA (11.0/3.0)
+MEMBER_POL_PARTY = SSH
+|   GENDER = Female: SOCIAJALISTICKI (2.0)
+|   GENDER = Male: SAVEZKOMUNISTA (2.0)
+|   GENDER = NA: SAVEZKOMUNISTA (0.0)
+MEMBER_POL_PARTY = HSS: HSS (7.0/2.0)
+MEMBER_POL_PARTY = SDSH: KOALICIJA (2.0/1.0)
+
+Number of Leaves  : 	75
+
+Size of the tree : 	112
+
+
+Time taken to build model: 0.39 seconds
+Time taken to test model on training data: 0.12 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         991               52.4894 %
+Incorrectly Classified Instances       897               47.5106 %
+Kappa statistic                          0.1659
+Mean absolute error                      0.0969
+Root mean squared error                  0.2202
+Relative absolute error                 88.5223 %
+Root relative squared error             94.1819 %
+Total Number of Instances             1888     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 854   2   0  29   1   0   2   0   0   0   0   0   0 |   a = HDZ
+ 239  27   0  15   1   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+  40   0   0   3   0   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+ 154   1   0  77   2   0   0   0   0   0   0   0   0 |   d = NOVOTE
+ 282   4   0  14  24   0   0   0   0   0   0   0   0 |   e = SAVEZKOMUNISTA
+  19   0   0   0   0   1   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+  16   0   0   1   0   0   5   0   0   0   0   0   0 |   g = HSS
+  22   0   0   6   0   0   0   1   0   0   0   0   0 |   h = OTHERPARTY
+  21   0   0   1   0   1   0   0   2   0   0   0   0 |   i = SOCIAJALISTICKI
+  13   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   1   0   0   0   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   5   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+
+
+=== Error on test data ===
+
+Correctly Classified Instances         237               50.3185 %
+Incorrectly Classified Instances       234               49.6815 %
+Kappa statistic                          0.1095
+Mean absolute error                      0.0992
+Root mean squared error                  0.2261
+Relative absolute error                 91.4623 %
+Root relative squared error             97.702  %
+Total Number of Instances              471     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   i   j   k   l   m   <-- classified as
+ 209   5   0  16   0   0   1   0   0   0   0   0   0 |   a = HDZ
+  54   8   0   5   1   0   0   0   0   0   0   0   0 |   b = KOALICIJA
+   8   0   0   0   1   0   0   0   0   0   0   0   0 |   c = INDEPENDENT
+  51   0   0  12   1   0   0   0   0   0   0   0   0 |   d = NOVOTE
+  63   2   0   2   6   0   0   0   0   0   0   0   0 |   e = SAVEZKOMUNISTA
+   6   0   0   0   0   0   0   0   0   0   0   0   0 |   f = SAVEZZELENIH
+   5   0   0   0   0   0   1   0   0   0   0   0   0 |   g = HSS
+   2   0   0   0   0   0   0   0   0   0   0   0   0 |   h = OTHERPARTY
+   3   0   0   1   0   0   0   0   1   0   0   0   0 |   i = SOCIAJALISTICKI
+   4   0   0   0   0   0   0   0   0   0   0   0   0 |   j = NA
+   0   0   0   0   0   0   0   0   0   0   0   0   0 |   k = YUGOSLAVENSKA
+   2   0   0   1   0   0   0   0   0   0   0   0   0 |   l = SRPSKA
+   0   0   0   0   0   0   0   0   0   0   0   0   0 |   m = ISTARSKI
+
