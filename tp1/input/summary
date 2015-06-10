@@ -1,0 +1,93 @@
+> d <- read.csv('input/dataset.csv', sep=',', header=TRUE)
+> summary(d)
+
+   GENDER          AGE          MEMBER_POL_PARTY INFO_PRESS  INFO_TV_RADIO
+ Female:1202   Min.   :18.00   NOTAMEMBER:2029    No  : 496   No  :  87    
+ Male  :1155   1st Qu.:28.00   HDZ       : 152    Yes :1759   Yes :2243    
+ NA's  :   2   Median :38.00   HSP       :  46    NA's: 104   NA's:  29    
+               Mean   :40.02   OTHERPARTY:  33                             
+               3rd Qu.:49.00   SDP       :  23                             
+               Max.   :90.00   (Other)   :  69                             
+                               NA's      :   7                             
+ INFO_POL_MEETING INFO_PARTY_PRESS INFO_ELECT_PUBLICATION INFO_CONVERSATION
+ No  :1989        No  :1946        No  :1981              No  : 583        
+ Yes : 196        Yes : 241        Yes : 194              Yes :1626        
+ NA's: 174        NA's: 172        NA's: 184              NA's: 150        
+                                                                           
+ INFO_NOT_INTERESTED       STATE_AND_MASS_MEDIA RESULT_INFLUEN_VOTING
+ No  :1949           LIMITEDINFLUENCE: 716      No  :2153            
+ Yes : 213           NOINTERVENTION  :1510      Yes : 174            
+ NA's: 197           STRONGINFLUENCE : 121      NA's:  32            
+                     NA's            :  12                           
+                                                                     
+    WHICH_PARTY_LAST_ELECT
+ HDZ           :1119      
+ SAVEZKOMUNISTA: 397      
+ KOALICIJA     : 350      
+ NOVOTE        : 298      
+ INDEPENDENT   :  52      
+ (Other)       : 126      
+ NA's          :  17
+
+--------------------------------------------------------------------------------
+
+> d <- read.csv('input/dataset_20_test.csv', sep=',', header=TRUE)
+> summary(d)
+    GENDER         AGE          MEMBER_POL_PARTY INFO_PRESS INFO_TV_RADIO
+ Female:235   Min.   :18.00   NOTAMEMBER:402     No  : 90   No  : 14     
+ Male  :236   1st Qu.:28.00   HDZ       : 26     Yes :368   Yes :452     
+              Median :38.00   HSP       : 12     NA's: 13   NA's:  5     
+              Mean   :40.35   OTHERPARTY: 12                             
+              3rd Qu.:50.00   SDP       :  6                             
+              Max.   :90.00   (Other)   : 12                             
+                              NA's      :  1                             
+ INFO_POL_MEETING INFO_PARTY_PRESS INFO_ELECT_PUBLICATION INFO_CONVERSATION
+ No  :404         No  :390         No  :399               No  :109         
+ Yes : 41         Yes : 54         Yes : 42               Yes :339         
+ NA's: 26         NA's: 27         NA's: 30               NA's: 23         
+                                                                           
+ INFO_NOT_INTERESTED       STATE_AND_MASS_MEDIA RESULT_INFLUEN_VOTING
+ No  :400            LIMITEDINFLUENCE:129       No  :439             
+ Yes : 41            NOINTERVENTION  :323       Yes : 25             
+ NA's: 30            STRONGINFLUENCE : 19       NA's:  7             
+                                                                     
+    WHICH_PARTY_LAST_ELECT
+ HDZ           :231       
+ SAVEZKOMUNISTA: 73       
+ KOALICIJA     : 68       
+ NOVOTE        : 64       
+ INDEPENDENT   :  9       
+ (Other)       : 22       
+ NA's          :  4
+
+--------------------------------------------------------------------------------
+
+> d <- read.csv('input/dataset_80_train.csv', sep=',', header=TRUE)
+> summary(d)
+    GENDER         AGE          MEMBER_POL_PARTY INFO_PRESS  INFO_TV_RADIO
+ Female:967   Min.   :18.00   NOTAMEMBER:1627    No  : 406   No  :  73    
+ Male  :919   1st Qu.:27.00   HDZ       : 126    Yes :1391   Yes :1791    
+ NA's  :  2   Median :38.00   HSP       :  34    NA's:  91   NA's:  24    
+              Mean   :39.94   OTHERPARTY:  21                             
+              3rd Qu.:49.00   SDP       :  17                             
+              Max.   :90.00   (Other)   :  57                             
+                              NA's      :   6                             
+ INFO_POL_MEETING INFO_PARTY_PRESS INFO_ELECT_PUBLICATION INFO_CONVERSATION
+ No  :1585        No  :1556        No  :1582              No  : 474        
+ Yes : 155        Yes : 187        Yes : 152              Yes :1287        
+ NA's: 148        NA's: 145        NA's: 154              NA's: 127        
+                                                                           
+ INFO_NOT_INTERESTED       STATE_AND_MASS_MEDIA RESULT_INFLUEN_VOTING
+ No  :1549           LIMITEDINFLUENCE: 587      No  :1714            
+ Yes : 172           NOINTERVENTION  :1187      Yes : 149            
+ NA's: 167           STRONGINFLUENCE : 102      NA's:  25            
+                     NA's            :  12                           
+                                                                     
+    WHICH_PARTY_LAST_ELECT
+ HDZ           :888       
+ SAVEZKOMUNISTA:324       
+ KOALICIJA     :282       
+ NOVOTE        :234       
+ INDEPENDENT   : 43       
+ (Other)       :104       
+ NA's          : 13

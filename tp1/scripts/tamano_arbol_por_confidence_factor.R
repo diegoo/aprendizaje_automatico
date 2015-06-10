@@ -1,4 +1,4 @@
-ej12 <- read.csv('output/ej1.punto.2.resultados.csv')
+ej12 <- read.csv('output/ej.1/ej1.punto.2.resultados.csv')
 
 # png('ej.1.2.1.png')
 # plot(x=ej12$confidence_factor, y=ej12$number_of_leaves, xlab="confidence factor (función de poda)", ylab="cantidad de hojas")

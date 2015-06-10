@@ -2,7 +2,8 @@
 
 for CONFIDENCE_FACTOR in 0.025 0.05 0.075 0.1 0.125 0.150 0.175 0.2 0.225 0.25 0.275 0.3 0.325 0.350 0.375 0.4 0.425 0.45 0.475 0.5; do
 
-    java -Xmx1024m -cp weka.jar weka.classifiers.trees.J48 -t input/dataset_80_train.arff -T input/dataset_20_test.arff -C "$CONFIDENCE_FACTOR" -M 2 > output/ej1."$CONFIDENCE_FACTOR".out ;
+    java -Xmx1024m -cp weka.jar weka.classifiers.trees.J48 -t input/dataset_80_train.arff -C "$CONFIDENCE_FACTOR" -M 2 > output/ej1."$CONFIDENCE_FACTOR".on.training.out ;
+    java -Xmx1024m -cp weka.jar weka.classifiers.trees.J48 -t input/dataset_80_train.arff -T input/dataset_20_test.arff -C "$CONFIDENCE_FACTOR" -M 2 > output/ej1."$CONFIDENCE_FACTOR".on.test.out ;
     echo "done $CONFIDENCE_FACTOR" ;
     
 done

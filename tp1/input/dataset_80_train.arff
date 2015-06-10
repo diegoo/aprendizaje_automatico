@@ -1,4 +1,4 @@
-@relation test_dataset
+@relation training_dataset
 
 @attribute GENDER { Female,Male,NA } 
 @attribute AGE numeric

@@ -1,4 +1,4 @@
-ej13_training <- read.csv('output/ej1.punto.3.performance.training.csv')
+ej13_training <- read.csv('output/ej.1/ej1.punto.3.performance.training.csv')
 
 png('ej.1.3.training.correctos.png')
 plot(x=ej13_training$confidence_factor, y=ej13_training$correctly_classified, xlab="función de poda (confidence factor)", ylab="clasificados correctamente - training")

@@ -1,6 +1,6 @@
 require(ggplot2)
 
-ej131 <- read.csv('output/ej1.punto.3.performance.training.csv')
+ej131 <- read.csv('output/ej.1/ej1.punto.3.performance.training.csv')
 
 x <- ej131$confidence_factor       # xlab="función de poda (confidence factor)", 
 y1 <- ej131$correctly_classified   # ylab="clasificados correctamente")

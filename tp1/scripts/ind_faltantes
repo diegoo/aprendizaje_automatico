@@ -3,13 +3,34 @@ import os, csv, random, sys
 from collections import Counter
 import itertools
 
+arff_header = """
+@relation dataset
+
+@attribute GENDER { Female,Male,NA } 
+@attribute AGE numeric
+@attribute MEMBER_POL_PARTY { NOTAMEMBER,HDZ,HKDS,HSP,HKDZ,SDP,OTHERPARTY,AREGIONALPARTY,NA,HSLS,SSH,HSS,SDSH } 
+@attribute INFO_PRESS { Yes,No,NA } 
+@attribute INFO_TV_RADIO { Yes,No,NA } 
+@attribute INFO_POL_MEETING { No,Yes,NA } 
+@attribute INFO_PARTY_PRESS { No,Yes,NA } 
+@attribute INFO_ELECT_PUBLICATION { No,Yes,NA } 
+@attribute INFO_CONVERSATION { No,Yes,NA } 
+@attribute INFO_NOT_INTERESTED { No,Yes,NA } 
+@attribute STATE_AND_MASS_MEDIA { NOINTERVENTION,LIMITEDINFLUENCE,STRONGINFLUENCE,NA } 
+@attribute RESULT_INFLUEN_VOTING { No,NA,Yes } 
+@attribute WHICH_PARTY_LAST_ELECT { HDZ,KOALICIJA,INDEPENDENT,NOVOTE,SAVEZKOMUNISTA,SAVEZZELENIH,HSS,OTHERPARTY,SOCIAJALISTICKI,NA,YUGOSLAVENSKA,SRPSKA,ISTARSKI } 
+
+
+@data
+"""
+
 # uso:
 # ./ind_faltantes [archivo] [nro. de campo a modificar (empezando en 0)]
 #
 # ejemplo:
 # ./ind_faltantes input/dataset.csv 2
 
-output_dir = 'output'
+output_dir = 'output/ej.2'
 input_data_file = sys.argv[1]
 field_number = int(sys.argv[2])
 
@@ -67,6 +88,7 @@ print("moda del atributo %s (%d): %s, %d" % (field_names[field_number], field_nu
 class_field_number = len(records[0]) - 1
 class_values = set([record[class_field_number] for record in records])
 class_frequencies = Counter([r[class_field_number] for r in records])
+print(class_frequencies)
 assert(sum([v for (k,v) in class_frequencies.viewitems()]) == len(records))
 
 counters_per_class = dict()
@@ -89,18 +111,22 @@ for missing_percentage in seq(0, 85, step=2.5):
     folder, filename = os.path.split(input_data_file)
     basename, extension = os.path.splitext(filename)
     
-    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.' + str(missing_percentage) + extension
-    with open(output_data_file, 'w') as csvfile:
+    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.' + str(field_number) + '.' + str(missing_percentage) + '.arff'
+    with open(output_data_file, 'w') as f:
+        f.writelines(arff_header)
+        
+    with open(output_data_file, 'a') as csvfile:
         fwriter = csv.writer(csvfile, delimiter=',')
-        fwriter.writerow(field_names)
         altered_records = transform_dataset(records, missing_percentage)
         fwriter.writerows(altered_records)
     print("%s: done" % output_data_file)
     
-    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.por.clase.' + str(missing_percentage) + extension
-    with open(output_data_file, 'w') as csvfile:
+    output_data_file = output_dir + "/" + basename + '.faltante.moda.de.atributo.por.clase.' + str(field_number) + '.' + str(missing_percentage) + '.arff'
+    with open(output_data_file, 'w') as f:
+        f.writelines(arff_header)
+
+    with open(output_data_file, 'a') as csvfile:
         fwriter = csv.writer(csvfile, delimiter=',')
-        fwriter.writerow(field_names)
         altered_records = transform_dataset_per_class(records, missing_percentage, counters_per_class)
         fwriter.writerows(altered_records)
     print("%s: done" % output_data_file)
