@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+import os, csv, random, sys
+from collections import Counter
+import itertools
+
+# uso:
+# ./ind_ruido [archivo]
+#
+# ejemplo:
+# ./ind_ruido input/dataset.csv
+
+output_dir = 'output'
+input_data_file = sys.argv[1]
+
+def seq(start, stop, step=1):
+    n = int(round((stop - start) / float(step)))
+    if n > 1: return([start + step*i for i in range(n+1)])
+    else: return([])
+    
+def add_noise(r, values):
+    altered_record = r[:]
+    original_value = r[-1]
+    filtered_values = list(values)[:]
+    filtered_values.remove(original_value)
+    altered_record[-1] = random.choice(filtered_values)
+    # print("%s changed to %s" % (original_value, altered_record[-1]))
+    return altered_record
+
+def transform_dataset(rr, percentage, values):
+    number_of_records_to_alter = int((percentage / 100.0) * len(rr))
+    indices_to_alter = random.sample(record_indices, number_of_records_to_alter)
+    altered_records = [add_noise(r, values) if (index in indices_to_alter) else r for (index, r) in enumerate(rr)]
+    return altered_records
+
+# reads input data file and calculates mode for the given field
+#
+with open(input_data_file, 'r') as csvfile:
+    freader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    records = [record for record in freader]
+    (field_names, records) = (records[0], records[1:])
+    record_indices = range(0, len(records))
+    class_field_number = len(records[0]) - 1
+    class_values = set([record[class_field_number] for record in records])
+    
+for noise_percentage in seq(0, 35, step=0.05):
+    folder, filename = os.path.split(input_data_file)
+    basename, extension = os.path.splitext(filename)
+    
+    output_data_file = output_dir + "/" + basename + '.ruido.' + str(noise_percentage) + extension
+    with open(output_data_file, 'w') as csvfile:
+        fwriter = csv.writer(csvfile, delimiter=',')
+        fwriter.writerow(field_names)
+        altered_records = transform_dataset(records, noise_percentage, class_values)
+        fwriter.writerows(altered_records)
+    print("%s: done" % output_data_file)
