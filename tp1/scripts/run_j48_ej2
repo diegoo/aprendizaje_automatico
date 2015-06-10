@@ -17,4 +17,5 @@ done
 
 # parse output files with:
 #
-# grep -RHi -A3 "error on test data" output/ej.2/modaatributo/dataset_80_train.faltante.moda.de.atributo.2.0.0.arff.cf.0.075.test.out | grep -i "\bcorrectly" | sed 's/.test.out-Correctly Classified Instances//g' | sed 's/[[:space:]]\+/,/g'
+# grep -RHi -A3 "error on training data" output/ej.2/modaatributo/*.training.out | grep -i "\bcorrectly" | sed 's/.training.out-Correctly Classified Instances//g' | sed 's/[[:space:]]\+/,/g'
+# grep -RHi -A3 "error on test data" output/ej.2/modaatributo/*.test.out | grep -i "\bcorrectly" | sed 's/.test.out-Correctly Classified Instances//g' | sed 's/[[:space:]]\+/,/g'
