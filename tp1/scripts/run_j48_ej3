@@ -1,0 +1,21 @@
+#!/bin/bash
+
+for TRAINING_FILE in output/ej.3/dataset_80_train.ruido.2*arff ; do
+    
+    TFILE=`basename $TRAINING_FILE`
+    
+    for CONFIDENCE_FACTOR in 0.025 0.05 0.075 0.1 0.125 0.150 0.175 0.2 0.225 0.25 0.275 0.3 0.325 0.350 0.375 0.4 0.425 0.45 0.475 0.5; do
+	
+	java -Xmx1024m -cp weka.jar weka.classifiers.trees.J48 -t "$TRAINING_FILE" -C "$CONFIDENCE_FACTOR" -M 2 > output/ej.3/"$TFILE".cf."$CONFIDENCE_FACTOR".training.out ;
+	java -Xmx1024m -cp weka.jar weka.classifiers.trees.J48 -t "$TRAINING_FILE" -T input/dataset_20_test.arff -C "$CONFIDENCE_FACTOR" -M 2 > output/ej.3/"$TFILE".cf."$CONFIDENCE_FACTOR".test.out ;
+	echo "done $TRAINING_FILE at $CONFIDENCE_FACTOR" ;
+
+    done
+    
+done
+
+
+# parse output files with:
+#
+# grep -RHi -A3 "error on training data" output/ej.3/*.training.out | grep -i "\bcorrectly" | sed 's/.training.out-Correctly Classified Instances//g' | sed 's/[[:space:]]\+/,/g'
+# grep -RHi -A3 "error on test data" output/ej.2/*.test.out | grep -i "\bcorrectly" | sed 's/.test.out-Correctly Classified Instances//g' | sed 's/[[:space:]]\+/,/g'
