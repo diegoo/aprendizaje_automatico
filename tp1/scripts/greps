@@ -1,0 +1,3 @@
+grep -RHi -A3 "error on test data" output/ej.4/*igual.ancho*.out | grep -i "\bcorrectly" | sed 's/Correctly Classified Instances//g' | sed 's/[[:space:]]\+/,/g' | sed 's/.igual.ancho.out-//' | sed 's/,%//' > output/ej.4/performance.igual.ancho.test.csv
+
+grep -RHi "size of the tree" output/ej.4/*igual.ancho*.out | sed 's/[[:space:]]\+/,/g' | sed 's/.igual.ancho.out-//' | sed 's/,%//' | sed 's/.igual.ancho.out:Size,of,the,tree//' | sed 's/,:,/,/'
