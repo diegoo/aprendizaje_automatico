@@ -21,6 +21,6 @@ ggplot(df, aes(cf)) + geom_point(aes(y=ancho_treesize, colour="igual ancho")) + 
 
 ggsave("ej.4.tree.size.vs.confidence.factor.png", width=12, height=6, dpi=100)
 
-ggplot(df, aes(ancho_bins)) + geom_line(aes(y=ancho_treesize, colour="igual ancho")) + geom_line(aes(y=frecuencia_treesize, colour="igual frecuencia")) + geom_jitter(aes(y=supervisado_treesize, colour="supervisado")) + xlab("Cantidad de Bins") + ylab("Tamaño del Árbol") + scale_colour_manual("", values = c("igual ancho"="blue", "igual frecuencia"="red", "supervisado"="green")) + ggtitle("Tamaño del Árbol por Cantidad de Bins (en datasets discretizados)")
+ggplot(df, aes(ancho_bins)) + geom_line(aes(y=ancho_treesize, colour="igual ancho")) + geom_line(aes(y=frecuencia_treesize, colour="igual frecuencia")) + geom_line(aes(y=supervisado_treesize, colour="supervisado")) + xlab("Cantidad de Bins") + ylab("Tamaño del Árbol") + scale_colour_manual("", values = c("igual ancho"="blue", "igual frecuencia"="red", "supervisado"="green")) + ggtitle("Tamaño del Árbol por Cantidad de Bins (en datasets discretizados)")
 
 ggsave("ej.4.tree.size.vs.number.of.bins.png", width=12, height=6, dpi=100)
