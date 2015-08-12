@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # uso:
-# ./test.sh best_model.model input.arff output.arff
+# ./test.sh best_model.model input.arff
 
 MODELO=$1
 NUEVAS_INSTANCIAS=$2
