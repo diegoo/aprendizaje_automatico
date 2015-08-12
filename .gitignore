@@ -4,3 +4,8 @@ notas
 .Rhistory
 tp1/output/ej.3/noise.*.out
 tp2/train_data
+tp2/challenge/.classpath
+tp2/challenge/.project
+tp2/challenge/output.arff
+tp2/challenge/target/
+tp2/no

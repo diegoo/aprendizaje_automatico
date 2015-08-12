@@ -27,5 +27,5 @@ with open(sys.argv[1], 'r') as image_file:
     r = csv.reader(image_file, delimiter=',')
     for vector in r:
         clase = vector[-1]
-        valores = [bn_2bit(int(x)) for x in vector[:-1]]
+        valores = [bn_1bit(int(x)) for x in vector[:-1]]
         print(','.join(valores) + ',' + clase)
