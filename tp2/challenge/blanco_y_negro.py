@@ -1,0 +1,1 @@
+../blanco_y_negro.py
