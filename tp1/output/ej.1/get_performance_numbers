@@ -1,1 +1,0 @@
-grep -RHi -A3 "Error on training data" output/*training.out | grep -i "\bcorrectly"
